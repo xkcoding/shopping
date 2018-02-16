@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createLogger from 'vuex/dist/logger'
 import ProductData from '../datas/product'
 
 Vue.use(Vuex)
@@ -20,7 +21,10 @@ function getFilterArray (array) {
   return res
 }
 
+const debug = process.env.NODE_ENV !== 'production'
 const store = new Vuex.Store({
+  plugins: debug ? [createLogger()] : [],
+  strict: debug,
   state: {
     // 商品列表数据
     productList: [],
