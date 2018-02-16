@@ -18,7 +18,7 @@ const routers = [
   {
     path: '/cart',
     name: 'cart',
-    mata: {
+    meta: {
       title: '购物车'
     },
     component: resolve => require(['views/cart.vue'], resolve)
